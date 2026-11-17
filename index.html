@@ -66,7 +66,7 @@
     p { color: #d3d8e1; }
     .profile { display: grid; grid-template-columns: 270px 1fr; gap: 32px; align-items: center; }
     .profile-photo {
-      width: 100%; height: 340px; object-fit: cover; object-position: center 25%;
+      display: block; width: 100%; aspect-ratio: 4 / 5; height: auto; object-fit: cover; object-position: center 22%;
       border-radius: 16px; border: 1px solid var(--gold); padding: 5px;
       background: #0a0d13;
     }
@@ -75,10 +75,13 @@
     .fact strong { display: block; color: var(--gold); font-size: .82rem; font-weight: 600; }
     .fact span { color: var(--text); }
     .photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 20px; }
+    .photo-grid > div { min-width: 0; }
     .photo-grid img {
-      width: 100%; height: 340px; object-fit: cover; border-radius: 14px;
-      border: 1px solid var(--line);
+      display: block; width: 100%; aspect-ratio: 4 / 5; height: auto; object-fit: cover; border-radius: 14px;
+      border: 1px solid var(--line); background: #0a0d13;
     }
+    .photo-hobby { object-position: 55% 30%; }
+    .photo-school { object-position: 50% 30%; }
     .caption { color: var(--muted); font-size: .88rem; margin-top: 8px; }
     .hobby-list { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; margin-top: 18px; }
     .hobby-item { padding: 14px; border: 1px solid var(--line); border-radius: 12px; background: rgba(255,255,255,.025); }
@@ -97,9 +100,8 @@
     footer { text-align: center; color: var(--muted); padding: 28px 15px 38px; border-top: 1px solid var(--line); margin-top: 45px; }
     @media (max-width: 700px) {
       .profile { grid-template-columns: 1fr; }
-      .profile-photo { max-width: 270px; height: 320px; margin: auto; }
+      .profile-photo { max-width: 270px; margin: auto; }
       .photo-grid, .facts, .hobby-list, .contact-grid { grid-template-columns: 1fr; }
-      .photo-grid img { height: auto; max-height: 430px; }
       nav { gap: 8px 14px; }
     }
   </style>
@@ -128,7 +130,7 @@
       <h2>Giới thiệu bản thân</h2>
       <div class="profile">
         <!-- ẢNH ĐẠI DIỆN: images/avatar.jpg -->
-        <img class="profile-photo" src="images/avatar.jpg" alt="Ảnh chân dung của Ngô Duy Hưng">
+        <img class="profile-photo" src="images/avatar.jpg" alt="Ảnh chân dung của Ngô Duy Hưng" width="540" height="680" decoding="async" onerror="this.onerror=null;this.src='avatar.jpg'">
         <div>
           <h3>Rất vui được làm quen!</h3>
           <p>Mình là Ngô Duy Hưng, một học sinh đang theo học tại Trường THPT Hòn Gai. Mình là người hiền lành, tốt bụng và luôn muốn khám phá những điều mới mẻ. Mình thích học hỏi kiến thức, trải nghiệm những điều thú vị và thử thách bản thân để ngày càng tiến bộ.</p>
@@ -155,12 +157,12 @@
       <div class="photo-grid">
         <!-- ẢNH SỞ THÍCH: images/hobby.jpg -->
         <div>
-          <img src="images/hobby.jpg" alt="Duy Hưng vui chơi cùng thú cưng">
+          <img class="photo-hobby" src="images/hobby.jpg" alt="Duy Hưng vui chơi cùng thú cưng" width="880" height="1100" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='hobby.jpg'">
           <p class="caption">Một khoảnh khắc trong thời gian rảnh.</p>
         </div>
         <!-- ẢNH HOẠT ĐỘNG / Ở TRƯỜNG: images/school-life.jpg -->
         <div>
-          <img src="images/school-life.jpg" alt="Duy Hưng trong trang phục học sinh">
+          <img class="photo-school" src="images/school-life.jpg" alt="Duy Hưng trong trang phục học sinh" width="825" height="1100" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='school-life.jpg'">
           <p class="caption">Một hình ảnh đời thường của mình.</p>
         </div>
       </div>
